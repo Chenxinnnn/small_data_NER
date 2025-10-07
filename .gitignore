@@ -1,0 +1,12 @@
+__pycache__/
+*.ipynb_checkpoints/
+*.gdoc
+*.gsheet
+*.tmp
+wandb/
+*.bin
+*.pt
+*.safetensors
+.DS_Store
+.config/
+sample_data/
