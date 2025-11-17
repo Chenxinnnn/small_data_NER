@@ -1,0 +1,7 @@
+{
+    "f1_dev": 0.6323907455012854,
+    "f1_test": 0.6189529489728297,
+    "precision_test": 0.47,
+    "recall_test": 0.91,
+    "inference_time_test": 142.092
+}
