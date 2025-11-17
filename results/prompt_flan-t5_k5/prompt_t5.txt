@@ -1,0 +1,32 @@
+Extract clinical entities from the sentence.
+Only extract spans that explicitly describe an abnormal medical condition.
+
+Valid entity types (all treated as "ety") include:
+- diseases or medical diagnoses
+- symptoms or signs of illness
+- abnormal masses or structural abnormalities
+- pathological exam, imaging, or biopsy findings
+- laboratory abnormalities (elevated, decreased, abnormal, positive)
+- infections or pathogen-related abnormalities
+- clinical events (bleeding, necrosis, obstruction)
+
+NOT entities:
+- normal anatomy
+- raw numbers or lab values
+- appearance descriptions (e.g., pale, weak)
+- medications, procedures, or causes
+- time, demographics, or contextual information
+
+RULES:
+- Copy spans EXACTLY from the sentence.
+- Do NOT add, merge, guess, or paraphrase.
+- If no valid entities exist, output: None
+Output format: e1; e2; e3
+
+Examples:
+
+Sentence: A 27 - year-old pregnant woman presented to our facility at 35 weeks ' gestation with a 3 - months history of right upper abdominal pain associated with generalized itch , tea colored urine , mastic - colored stool , and significant weight loss .
+right upper abdominal pain; generalized itch; tea colored urine; mastic - colored stool; weight loss
+
+
+Sentence: 

@@ -1,7 +1,0 @@
-              precision    recall  f1-score   support
-
-         ety       0.47      0.91      0.62       516
-
-   micro avg       0.47      0.91      0.62       516
-   macro avg       0.47      0.91      0.62       516
-weighted avg       0.47      0.91      0.62       516

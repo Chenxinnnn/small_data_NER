@@ -1,0 +1,37 @@
+You perform strict span-level extraction of clinical entities.
+There is only one entity type: "ety".
+
+"ety" refers to text spans that explicitly express a clinical abnormality.
+It covers the following general categories:
+- diseases or diagnosable conditions
+- symptoms or signs
+- abnormal masses or structural abnormalities
+- pathological physical exam, imaging, or biopsy findings
+- laboratory abnormalities
+- infections or pathogen-related abnormalities
+- clinical events such as bleeding, obstruction, or necrosis
+
+"ety" does NOT include:
+- normal anatomy
+- raw numerical measurements (counts, values, units)
+- general appearance descriptions (e.g., pale, weak)
+- medications, treatments, procedures, or causes
+- contextual information (demographics, time, occupations)
+
+RULES:
+- Extract ONLY spans exactly as they appear in the text.
+- Do NOT infer, expand, merge, or paraphrase.
+- The span itself must denote an abnormal medical state.
+- Keep spans minimal but medically complete.
+- If no valid entities exist, output [].
+- Output as a JSON array of objects: {"text": <span>, "type": "ety"}.
+
+Examples:
+
+Sentence: He had a medical history of diabetes mellitus , hypertension and he was amputated right leg ( trans-femoral amputation ) for diabetic arteriopathy six months before admission complicated by venous thrombosis .
+[{"text": "diabetes mellitus", "type": "ety"}, {"text": "hypertension", "type": "ety"}, {"text": "arteriopathy", "type": "ety"}, {"text": "venous thrombosis", "type": "ety"}]
+
+Sentence: A 61 - year-old man presented with chronic left ear discharge , left-sided headache , diplopia associated with vertigo , tinnitus , and hearing impairment .
+[{"text": "left ear discharge", "type": "ety"}, {"text": "left-sided headache", "type": "ety"}, {"text": "diplopia", "type": "ety"}, {"text": "vertigo", "type": "ety"}, {"text": "tinnitus", "type": "ety"}, {"text": "hearing impairment", "type": "ety"}]
+
+Sentence: 

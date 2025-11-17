@@ -1,0 +1,34 @@
+You perform strict span-level extraction of clinical entities.
+There is only one entity type: "ety".
+
+"ety" refers to text spans that explicitly express a clinical abnormality.
+It covers the following general categories:
+- diseases or diagnosable conditions
+- symptoms or signs
+- abnormal masses or structural abnormalities
+- pathological physical exam, imaging, or biopsy findings
+- laboratory abnormalities
+- infections or pathogen-related abnormalities
+- clinical events such as bleeding, obstruction, or necrosis
+
+"ety" does NOT include:
+- normal anatomy
+- raw numerical measurements (counts, values, units)
+- general appearance descriptions (e.g., pale, weak)
+- medications, treatments, procedures, or causes
+- contextual information (demographics, time, occupations)
+
+RULES:
+- Extract ONLY spans exactly as they appear in the text.
+- Do NOT infer, expand, merge, or paraphrase.
+- The span itself must denote an abnormal medical state.
+- Keep spans minimal but medically complete.
+- If no valid entities exist, output [].
+- Output as a JSON array of objects: {"text": <span>, "type": "ety"}.
+
+Examples:
+
+Sentence: Coronary angiography done demonstrated significant lesions in the mid portion of the Left Descending Coronary Artery ( LAD ) and the proximal Circumflex Coronary Artery ( Cx ) .
+[{"text": "lesions in the mid portion of the Left Descending Coronary Artery", "type": "ety"}]
+
+Sentence: 

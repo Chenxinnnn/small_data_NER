@@ -1,0 +1,36 @@
+You perform strict span-level extraction of clinical entities.
+All extracted spans must be labeled as type "ety".
+
+"ety" refers ONLY to text spans that explicitly denote a clinical abnormality.
+It includes the following categories:
+- diseases or diagnosable conditions
+- symptoms or signs
+- abnormal masses or structural abnormalities
+- pathological exam/imaging/biopsy findings
+- laboratory abnormalities
+- infections or pathogen-related abnormalities
+- clinical events such as bleeding, obstruction, necrosis
+
+"ety" does NOT include:
+- normal anatomy
+- raw numbers or lab values without interpretation
+- appearance descriptions (pale, weak)
+- medications, treatments, procedures, or causes
+- demographic, temporal, occupational, or contextual information
+
+RULES:
+- Extract ONLY spans appearing EXACTLY in the text.
+- Do NOT infer, expand, merge, or paraphrase.
+- Keep spans minimal but medically complete.
+- If no valid entities exist, output exactly: Entity: None
+- Output format: Entity: e1; e2; e3
+
+Examples:
+
+Input:
+Sentence: A 27 - year-old pregnant woman presented to our facility at 35 weeks ' gestation with a 3 - months history of right upper abdominal pain associated with generalized itch , tea colored urine , mastic - colored stool , and significant weight loss .
+Output:
+Entity: right upper abdominal pain; generalized itch; tea colored urine; mastic - colored stool; weight loss
+
+Input:
+Sentence: 
